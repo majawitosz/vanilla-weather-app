@@ -3,8 +3,7 @@ html {
 }
 body {
   font-family: Quicksand, "Courier New", Courier;
-  display: flex;
-  justify-content: center;
+
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
 h1 {
@@ -17,9 +16,7 @@ h1 {
   font-size: 80px;
   font-family: "Raleway-Light", sans-serif;
   line-height: 75px;
-  display: inline-block;
-  position: relative;
-  top: 30px;
+
   color: #5a6275;
 }
 .current-time {
@@ -30,12 +27,14 @@ h1 {
   font-family: Quicksand, "Courier New", Courier;
 }
 .locationButton {
-  padding: 10px 10px;
-  border-radius: 50%;
+  padding: 5px 24px;
+  border-radius: 10%;
   box-shadow: 1px 1px 5px #fa709a;
-  background-color: #fee140;
+  background: none;
   border: 2px solid #fa709a;
   color: #fa709a;
+  display: block;
+  margin: 0 auto;
 }
 .locationButton:hover {
   background-color: #6c757d;
@@ -47,16 +46,19 @@ input.btn {
   color: #5a6275;
   font-weight: 400;
 }
+.location-icon {
+  color: #5a6275;
+}
 .conditions {
   list-style: none;
   padding: 0;
   line-height: 1.5;
-  margin-top: 30px;
-  margin-bottom: 0;
   color: #5a6275;
+  position: relative;
+  bottom: 30px;
 }
 
-a {
+.unit {
   text-decoration: none;
   color: #5a6275;
   opacity: 0.5;
@@ -69,9 +71,7 @@ a {
   padding: 15px;
   margin: 20px;
   height: fit-content;
-  width: fit-content;
   background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
-  min-width: 730px;
 }
 
 .main-icon {
@@ -80,11 +80,13 @@ a {
 }
 .degrees {
   font-size: 25px;
-  line-height: 30px;
+  position: relative;
+  bottom: 75px;
+  left: 80px;
   color: #5a6275;
-  font-weight: 500;
+  font-weight: 300;
 }
-.small-icon {
+.weather-icon-forecast {
   display: block;
   font-size: 35px;
   margin: 0 auto;
@@ -94,16 +96,13 @@ a {
   border: 2px solid #6c757d;
   box-shadow: 1px 2px 5px #6c757d;
   border-radius: 20px;
-  padding: 10px;
+  padding: 10px 40px;
   margin: 10px;
   text-align: center;
-  width: 100px;
-  height: 100px;
   color: #5a6275;
 }
 
 .days {
-  width: fit-content;
   margin-top: 20px;
   margin-bottom: 10px;
 }
