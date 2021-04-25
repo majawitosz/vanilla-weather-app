@@ -11,7 +11,8 @@ body {
   max-width: 720px;
   background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
   display: block;
-  margin: 30px auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
   padding: 20px 10px;
   font-family: Quicksand, Arial, sans-serif;
 }
@@ -107,4 +108,17 @@ input.btn {
   text-align: center;
   color: #5a6275;
   width: 105px;
+}
+.github-link {
+  color: #5a6275;
+  text-decoration: none;
+  color: #fa709a;
+}
+footer {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  color: #666b75;
+  font-size: 16px;
+  opacity: 0.8;
 }
