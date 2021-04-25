@@ -23,9 +23,11 @@ h1 {
 }
 .temp {
   font-size: 80px;
-  font-family: "Raleway-Light", Helvetica, Arial, sans-serif;
+  font-family: "Raleway-Light", sans-serif;
   line-height: 75px;
   color: #5a6275;
+  font-weight: 100;
+  text-align: left;
 }
 .description {
   font-size: 20px;
