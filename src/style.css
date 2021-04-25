@@ -2,7 +2,6 @@ html {
   height: 100%;
 }
 body {
-  font-family: Quicksand, "Courier New", "Josefin Sans", sans-serif, Courier;
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
 .weather-app {
@@ -14,17 +13,17 @@ body {
   display: block;
   margin: 30px auto;
   padding: 20px 10px;
+  font-family: Quicksand, Arial, sans-serif;
 }
 
 h1 {
   font-size: 40px;
   line-height: 50px;
   color: #5a6275;
-  font-family: Quicksand, "Courier New", Courier;
 }
 .temp {
   font-size: 80px;
-  font-family: "Raleway-Light", sans-serif;
+  font-family: "Raleway-Light", Arial, sans-serif;
   line-height: 75px;
   color: #5a6275;
 }
@@ -38,7 +37,6 @@ h1 {
   font-size: 20px;
   font-weight: 400;
   color: #5a6275;
-  font-family: Quicksand, "Courier New", Courier;
 }
 .locationButton {
   padding: 5px 24px;
