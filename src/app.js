@@ -39,9 +39,17 @@ function displayTemperature(response) {
   let weatherIcon = response.data.list[0].weather[0].icon;
   iconElement.setAttribute("src", `src/images/${weatherIcon}.png`);
 }
+function search(city) {
+  let apiKey = "4bf607af66f424ce009f3ab41fd57579";
 
-let apiKey = "4bf607af66f424ce009f3ab41fd57579";
-let city = "Katowice";
-let apiUrl = `https://api.openweathermap.org/data/2.5/find?q=${city}&units=metric&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/find?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#search-engine");
+  search(cityInputElement.value);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

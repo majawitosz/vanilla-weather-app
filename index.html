@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/style.css" />
-    <link href="src/images" />
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link
       rel="icon"
@@ -29,7 +29,7 @@
       <div class="weather-app">
         <div class="row justify-content-md-center">
           <div class="col-8 col-md-10">
-            <form>
+            <form id="search-form">
               <div class="input-group mb-3">
                 <input
                   type="text"
@@ -38,6 +38,7 @@
                   aria-label="City"
                   aria-describedby="city"
                   id="search-engine"
+                  autocomplete="off"
                 />
                 <input
                   class="btn btn-outline-secondary"
