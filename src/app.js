@@ -1,5 +1,5 @@
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
+function formatDate() {
+  let date = new Date();
   let hours = date.getHours();
   let minutes = date.getMinutes();
   if (hours < 10) {
@@ -34,7 +34,7 @@ function displayTemperature(response) {
   let pressureElement = document.querySelector("#air-pressure");
   pressureElement.innerHTML = response.data.list[0].main.pressure;
   let dateElement = document.querySelector("#date");
-  dateElement.innerHTML = formatDate(response.data.list[0].dt * 1000);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let apiKey = "4bf607af66f424ce009f3ab41fd57579";

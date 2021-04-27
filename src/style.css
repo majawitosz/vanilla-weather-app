@@ -26,6 +26,13 @@ h1 {
   line-height: 50px;
   color: aliceblue;
 }
+p {
+  color: aliceblue;
+  font-size: 15px;
+  margin-bottom: 0 !important;
+  text-align: left;
+  line-height: 17px;
+}
 .temp {
   font-size: 80px;
   font-family: "Raleway", sans-serif;
@@ -41,9 +48,10 @@ h1 {
 }
 .current-time {
   display: inline-block;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 400;
   color: aliceblue;
+  line-height: 25px;
 }
 .locationButton {
   padding: 5px 24px;
