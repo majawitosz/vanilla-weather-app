@@ -92,7 +92,15 @@ input.btn:hover {
   color: aliceblue;
   opacity: 0.5;
 }
-
+.active {
+  text-decoration: none;
+  color: aliceblue;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+  color: aliceblue;
+}
 .main-icon {
   font-size: 140px;
   line-height: 1;
