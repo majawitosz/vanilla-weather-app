@@ -31,9 +31,9 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  let celsiusTemp = response.data.list[0].main.temp;
+  celsiusTemperature = response.data.list[0].main.temp;
 
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = response.data.list[0].name;
   humidityElement.innerHTML = response.data.list[0].main.humidity;
   windElement.innerHTML = Math.round(response.data.list[0].wind.speed);
@@ -64,15 +64,21 @@ celsiusLink.addEventListener("click", showCelsiusTemp);
 
 function showFahrenheitTemp(event) {
   event.preventDefault();
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  celsiusLink.classList.add("unit");
+  fahrenheitLink.classList.remove("unit");
+  fahrenheitLink.classList.add("active");
+
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 }
 function showCelsiusTemp(event) {
   event.preventDefault();
-
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("unit");
+  fahrenheitLink.classList.add("active");
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-let celsiusTemp = null;
+let celsiusTemperature = null;
 search("Paris");
