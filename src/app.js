@@ -27,7 +27,21 @@ function formatDay(timestamp) {
 
   return days[day];
 }
+// Geolocation button
+function findCity() {
+  let apiUrlGeo =
+    "https://api.ip2loc.com/mmVprQO3qYb62SY7Lo2lrKHDxTpomRoG/detect";
+  axios.get(apiUrlGeo).then(displayCity);
+}
+function displayCity(response) {
+  let yourCity = document.querySelector("#city");
+  yourCity.innerHTML = response.data.location.city;
+  search(response.data.location.city);
+}
+let button = document.querySelector("#location");
+button.addEventListener("click", findCity);
 
+// Forecast
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -103,4 +117,5 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-search("Paris");
+//search("Paris");
+findCity();
