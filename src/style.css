@@ -86,36 +86,18 @@ input.btn:hover {
   position: relative;
   bottom: 30px;
 }
-a {
-  text-decoration: none;
-}
+
 span.degrees {
   text-decoration: none;
   font-size: 25px;
   position: relative;
   bottom: 75px;
-  left: 80px;
+  left: 87px;
+
   color: aliceblue;
   font-weight: 300;
 }
-.unit {
-  text-decoration: none;
-  color: aliceblue;
-  opacity: 0.5;
-}
-.unit:hover {
-  opacity: 0.5;
-  color: #5a6275;
-}
-.active {
-  text-decoration: none;
-  color: aliceblue;
-  cursor: default;
-}
-.active:hover {
-  text-decoration: none;
-  color: aliceblue;
-}
+
 .main-icon {
   font-size: 140px;
   line-height: 1;
@@ -140,12 +122,7 @@ span.degrees {
   color: aliceblue;
   width: 105px;
 }
-.weather-forecast-date {
-}
-.weather-forecast-temp-max {
-}
-.weather-forecast-temp-min {
-}
+
 .github-link {
   color: #5a6275;
   text-decoration: none;
