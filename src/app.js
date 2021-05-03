@@ -103,29 +103,4 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemp);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", showCelsiusTemp);
-
-function showFahrenheitTemp(event) {
-  event.preventDefault();
-  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
-  celsiusLink.classList.add("unit");
-  fahrenheitLink.classList.remove("unit");
-  fahrenheitLink.classList.add("active");
-
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-}
-function showCelsiusTemp(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("unit");
-  fahrenheitLink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-let celsiusTemperature = null;
 search("Paris");
