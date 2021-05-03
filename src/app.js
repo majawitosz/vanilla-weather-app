@@ -21,7 +21,8 @@ function formatDate() {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forescastHTML = `<div class="row justify-content-center">`;
@@ -30,20 +31,29 @@ function displayForecast() {
     forescastHTML =
       forescastHTML +
       ` <div class="col-6 col-lg-2" id="small-icons">
-${day} <br /><span class="weather-icon-forecast">
-<img
-id="icon"
-src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/279/sun-behind-cloud_26c5.png"
-width="35" /></span
->7° | 2°
-</div>
-</div>`;
+  <div class="weather-forecast-date">${day}</div>
+              <img
+                class="weather-icon-forecast"
+                id="icon"
+                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/279/sun-behind-cloud_26c5.png"
+                width="35"
+              />
+              >
+              <span class="weather-forecast-temp-max">7°</span> |
+              <span class="weather-forecast-temp-min">2°</span>
+            </div>`;
   });
 
   forescastHTML = forescastHTML + `</div>`;
   forecastElement.innerHTML = forescastHTML;
 }
-
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "4bf607af66f424ce009f3ab41fd57579";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 function displayTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
@@ -64,6 +74,8 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   let weatherIcon = response.data.list[0].weather[0].icon;
   iconElement.setAttribute("src", `src/images/${weatherIcon}.png`);
+
+  getForecast(response.data.list[0].coord);
 }
 function search(city) {
   let apiKey = "4bf607af66f424ce009f3ab41fd57579";
@@ -105,4 +117,3 @@ function showCelsiusTemp(event) {
 }
 let celsiusTemperature = null;
 search("Paris");
-displayForecast();
