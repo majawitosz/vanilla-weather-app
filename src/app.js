@@ -20,28 +20,40 @@ function formatDate() {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forescastHTML = `<div class="row justify-content-center">`;
-  let days = ["Thu", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forescastHTML =
-      forescastHTML +
-      ` <div class="col-6 col-lg-2" id="small-icons">
-  <div class="weather-forecast-date">${day}</div>
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forescastHTML =
+        forescastHTML +
+        ` <div class="col-6 col-lg-2" id="small-icons">
+  <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
               <img
                 class="weather-icon-forecast"
                 id="icon"
-                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/279/sun-behind-cloud_26c5.png"
+                src="src/images/${forecastDay.weather[0].icon}.png"
                 width="35"
               />
-              >
-              <span class="weather-forecast-temp-max">7°</span> |
-              <span class="weather-forecast-temp-min">2°</span>
+              <span class="weather-forecast-temp-max">${Math.round(
+                forecastDay.temp.max
+              )}°</span> |
+              <span class="weather-forecast-temp-min">${Math.round(
+                forecastDay.temp.min
+              )}°</span>
             </div>`;
+    }
   });
 
   forescastHTML = forescastHTML + `</div>`;
