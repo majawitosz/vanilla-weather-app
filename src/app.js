@@ -21,6 +21,29 @@ function formatDate() {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forescastHTML = `<div class="row justify-content-center">`;
+  let days = ["Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forescastHTML =
+      forescastHTML +
+      ` <div class="col-6 col-lg-2" id="small-icons">
+${day} <br /><span class="weather-icon-forecast">
+<img
+id="icon"
+src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/279/sun-behind-cloud_26c5.png"
+width="35" /></span
+>7° | 2°
+</div>
+</div>`;
+  });
+
+  forescastHTML = forescastHTML + `</div>`;
+  forecastElement.innerHTML = forescastHTML;
+}
+
 function displayTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
@@ -82,3 +105,4 @@ function showCelsiusTemp(event) {
 }
 let celsiusTemperature = null;
 search("Paris");
+displayForecast();

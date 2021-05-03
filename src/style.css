@@ -140,6 +140,12 @@ span.degrees {
   color: aliceblue;
   width: 105px;
 }
+.weather-forecast-date {
+}
+.weather-forecast-temp-max {
+}
+.weather-forecast-temp-min {
+}
 .github-link {
   color: #5a6275;
   text-decoration: none;
