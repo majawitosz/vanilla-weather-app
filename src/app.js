@@ -31,7 +31,7 @@ function formatDay(timestamp) {
 
 function findCity(position) {
   let apiKey = "4bf607af66f424ce009f3ab41fd57579";
-  let lat = position.coords.lattitude;
+  let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
@@ -42,7 +42,6 @@ function findCity(position) {
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(findCity);
-  console.log(navigator.geolocation.getCurrentPosition);
 }
 function displayCity(response) {
   let yourCity = document.querySelector("#city");
