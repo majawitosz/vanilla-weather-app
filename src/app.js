@@ -28,6 +28,29 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+//Geolocation
+function showPosition(position) {
+  //let h1 = document.querySelector("#city");
+
+  console.log(position);
+  console.log(position.coords.latitude);
+  console.log(position.coords.longitude);
+  let lat = position.coords.latitude;
+  let long = position.coords.longitude;
+  let units = "metric";
+  let apiKey = "4bf607af66f424ce009f3ab41fd57579";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayGeolocationTemp);
+}
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+let button = document.querySelector("#location");
+button.addEventListener("click", getCurrentPosition);
+
+//Forecast
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -65,6 +88,25 @@ function getForecast(coordinates) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
+}
+function displayGeolocationTemp(response) {
+  let temperatureElement = document.querySelector("#temperature");
+  let cityElement = document.querySelector("#city");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let pressureElement = document.querySelector("#air-pressure");
+  let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
+  celsiusTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  cityElement.innerHTML = response.data.name;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  pressureElement.innerHTML = response.data.main.pressure;
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  let weatherIcon = response.data.weather[0].icon;
+  iconElement.setAttribute("src", `src/images/${weatherIcon}.png`);
 }
 function displayTemperature(response) {
   console.log(response.data);
