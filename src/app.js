@@ -27,31 +27,7 @@ function formatDay(timestamp) {
 
   return days[day];
 }
-// Geolocation button
 
-function findCity(position) {
-  let apiKey = "4bf607af66f424ce009f3ab41fd57579";
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(displayTemperature);
-  console.log(apiUrl);
-}
-
-function getCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(findCity);
-}
-function displayCity(response) {
-  let yourCity = document.querySelector("#city");
-  yourCity.innerHTML = response.data.name;
-  search(response.data.name);
-}
-let button = document.querySelector("#location");
-button.addEventListener("click", findCity);
-
-// Forecast
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -110,7 +86,7 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   let weatherIcon = response.data.list[0].weather[0].icon;
   iconElement.setAttribute("src", `src/images/${weatherIcon}.png`);
-  //findCity(response.data.list[0].coord);
+
   getForecast(response.data.list[0].coord);
 }
 function search(city) {
